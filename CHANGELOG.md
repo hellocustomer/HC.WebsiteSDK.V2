@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.2](https://github.com/hellocustomer/HC.WebsiteSDK/compare/1.1.1...1.1.2) (2021-02-25)
+
+
+### Bug Fixes
+
+* change modal survey max-width to 685px ([45e030d](https://github.com/hellocustomer/HC.WebsiteSDK/commit/45e030da3995ff1b2c3c06ee9d9361ed0cfcb91f))
+
 ### [1.1.1](https://github.com/hellocustomer/HC.WebsiteSDK/compare/1.1.0...1.1.1) (2020-10-14)
 
 
