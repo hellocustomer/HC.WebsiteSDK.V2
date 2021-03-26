@@ -1,7 +1,13 @@
+import { SurveyQuarantineConfig } from '../common/survey-quarantine-config.interface';
+
 import { ClassNamesConfigType } from './class-names-config.type';
 import { ModalSurveyStyleConfig } from './modal-survey-style-config.interface';
 
 export interface ModalSurveyConfig {
+  /**
+   * Override default modal css class names
+   */
+  classNames?: ClassNamesConfigType;
   /**
    * @default true
    */
@@ -9,11 +15,26 @@ export interface ModalSurveyConfig {
   /**
    * @default true
    */
-  closeOnEscape?: boolean;
+  closeOnBackgroundClick?: boolean;
   /**
    * @default true
    */
-  translucentBackground?: boolean;
+  closeOnEscape?: boolean;
+  /**
+   * @default false
+   */
+  ignoreDefaultStyles?: boolean;
+  /**
+   * modal root container query selector
+   *
+   * @default body
+   */
+  modalContainerSelector?: string;
+  /**
+   * Override default modal style
+   */
+  modalStyle?: ModalSurveyStyleConfig;
+  quarantineConfig?: SurveyQuarantineConfig;
   /**
    * @default false
    */
@@ -21,25 +42,5 @@ export interface ModalSurveyConfig {
   /**
    * @default true
    */
-  closeOnBackgroundClick?: boolean;
-  /**
-   * @default false
-   */
-  ignoreDefaultStyles?: boolean;
-  /**
-   * Override default modal style
-   */
-  modalStyle?: ModalSurveyStyleConfig;
-
-  /**
-   * Override default modal css class names
-   */
-  classNames?: ClassNamesConfigType;
-
-  /**
-   * modal root container query selector
-   *
-   * @default body
-   */
-  modalContainerSelector?: string;
+  translucentBackground?: boolean;
 }

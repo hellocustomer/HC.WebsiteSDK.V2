@@ -3,6 +3,7 @@ import { StyledElementFactory } from '../../core/factories/styled-element.factor
 import { UrlFactory } from '../../core/factories/url.factory';
 import { trueByDefault } from '../../core/utils/true-by-default.util';
 import { UrlBuilder } from '../../url-builder/url.builder';
+import { QuarantineService } from '../common/quarantine.service';
 
 import { ClassNamesConfigType } from './class-names-config.type';
 import { ModalSurveyConfig } from './modal-survey-config.interface';
@@ -75,6 +76,7 @@ export class ModalSurvey {
   private readonly modalHandle: HTMLDivElement;
   private readonly urlFactory: UrlFactory;
   private readonly validator: ModalSurveyConfigValidator;
+  private readonly quarantineService: QuarantineService;
 
   constructor(
     configBuilder: UrlBuilder,
@@ -83,6 +85,9 @@ export class ModalSurvey {
     this.urlFactory = configBuilder.getUrlFactory();
     this.validator = new ModalSurveyConfigValidator();
     this.validator.validateAndThrowOnErrors(modalConfig);
+    this.quarantineService = new QuarantineService(
+      modalConfig.quarantineConfig
+    );
     const [root, frame] = this.createModal();
     this.iFrameHandle = frame;
     this.modalHandle = root;
@@ -112,8 +117,11 @@ export class ModalSurvey {
    * Open modal window
    */
   public show(): void {
-    const styleClasses = this.getClassNames();
-    this.modalHandle.classList.add(styleClasses.modalVisible);
+    if (!this.quarantineService.isUnderQuarantine()) {
+      const styleClasses = this.getClassNames();
+      this.modalHandle.classList.add(styleClasses.modalVisible);
+      this.quarantineService.startQuarantine();
+    }
   }
 
   /**

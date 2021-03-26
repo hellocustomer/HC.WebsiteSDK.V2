@@ -2,6 +2,7 @@ import { InvalidQuerySelectorException } from '../../core/exceptions/invalid-que
 import { StyledElementFactory } from '../../core/factories/styled-element.factory';
 import { UrlFactory } from '../../core/factories/url.factory';
 import { UrlBuilder } from '../../url-builder/url.builder';
+import { QuarantineService } from '../common/quarantine.service';
 
 import { InlineSurveyConfig } from './inline-survey-config.interface';
 import { InlineSurveyConfigValidator } from './inline-survey.config-validator';
@@ -51,6 +52,7 @@ export class InlineSurvey {
   private readonly iFrameHandle: HTMLIFrameElement;
   private readonly validator: InlineSurveyConfigValidator;
   private readonly urlFactory: UrlFactory;
+  private readonly quarantineService: QuarantineService;
 
   constructor(
     configBuilder: UrlBuilder,
@@ -60,7 +62,15 @@ export class InlineSurvey {
     this.validator = new InlineSurveyConfigValidator();
     this.validator.validateAndThrowOnErrors(inlineConfig);
     this.iFrameHandle = this.createIframeElement();
+    this.quarantineService = new QuarantineService(
+      inlineConfig.quarantineConfig
+    );
     this.reload();
+    if (this.quarantineService.isUnderQuarantine()) {
+      this.hide();
+    } else {
+      this.quarantineService.startQuarantine();
+    }
   }
 
   /**
@@ -74,7 +84,10 @@ export class InlineSurvey {
    * Show survey
    */
   public show(): void {
-    this.iFrameHandle.style.display = '';
+    if (!this.quarantineService.isUnderQuarantine()) {
+      this.iFrameHandle.style.display = '';
+      this.quarantineService.startQuarantine();
+    }
   }
 
   /**

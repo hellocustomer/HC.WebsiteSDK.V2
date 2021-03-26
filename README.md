@@ -21,7 +21,7 @@ const urlBuilder = new UrlBuilder({
   extra: {
     isPreview: true
   }
- });
+});
   ```
 
 
@@ -37,7 +37,7 @@ const urlBuilder = new UrlBuilder({
       extra: {
         isPreview: true
       }
-     });
+    });
 </script>
   ```
 Please consult the docs for more [configuration options](https://hellocustomer.github.io/HC.WebsiteSDK/interfaces/surveyconfig.html).
@@ -75,10 +75,10 @@ Please consult the docs for more [configuration options](https://hellocustomer.g
       extra: {
         isPreview: true
       }
-     });
-     const inlineSurvey = new hcWebsiteTouchpoint.InlineSurvey(urlBuilder, {
-        elementSelector: '#survey'
-      });
+    });
+    const inlineSurvey = new hcWebsiteTouchpoint.InlineSurvey(urlBuilder, {
+      elementSelector: '#survey'
+    });
 </script>
   ```
 Please consult the docs for more [configuration options](https://hellocustomer.github.io/HC.WebsiteSDK/interfaces/inlinesurveyconfig.html).
@@ -99,21 +99,23 @@ Please consult the docs for more [configuration options](https://hellocustomer.g
     }
   });
   const modalSurvey = new ModalSurvey(urlBuilder, {});
+  modalSurvey.show();
   ```
   #### Example (script tag)
   ```html
   <script src="https://unpkg.com/@hello-customer/website-touchpoint"></script>
   <script>
-  const urlBuilder = new hcWebsiteTouchpoint.UrlBuilder({
-      baseUrl: 'https://base.com',
-      tenantId: 'xxxx',
-      touchPointId: 'zzz',
-      language: 'EN',
-      extra: {
-        isPreview: true
-      }
-     });
-  const modalSurvey = new hcWebsiteTouchpoint.ModalSurvey(urlBuilder, {});
+      const urlBuilder = new hcWebsiteTouchpoint.UrlBuilder({
+        baseUrl: 'https://base.com',
+        tenantId: 'xxxx',
+        touchPointId: 'zzz',
+        language: 'EN',
+        extra: {
+          isPreview: true
+        }
+      });
+      const modalSurvey = new hcWebsiteTouchpoint.ModalSurvey(urlBuilder, {});
+      modalSurvey.show();
   </script>
   ```
 Please consult the docs for more [configuration options](https://hellocustomer.github.io/HC.WebsiteSDK/interfaces/modalsurveyconfig.html).
@@ -171,9 +173,10 @@ Please consult the docs for more [configuration options](https://hellocustomer.g
       isPreview: true
     }
   });
-  const inlineSurvey = new WindowSurvey(urlBuilder, {
+  const windowSurvey = new WindowSurvey(urlBuilder, {
     openNewWindow: true
   });
+  windowSurvey.open();
   ```
  
  
@@ -190,9 +193,22 @@ Please consult the docs for more [configuration options](https://hellocustomer.g
         isPreview: true
       }
      });
-     const inlineSurvey = new hcWebsiteTouchpoint.WindowSurvey(urlBuilder, {
+     const windowSurvey = new hcWebsiteTouchpoint.WindowSurvey(urlBuilder, {
         openNewWindow: true
-      });
+     });
+     windowSurvey.open();
 </script>
   ```
 Please consult the docs for more [configuration options](https://hellocustomer.github.io/HC.WebsiteSDK/interfaces/windowsurveyconfig.html).
+
+## Quarantine
+  It is possible to set a quarantine period for any survey type - once the survey is opened, it defines how many days should elapse before the survey could be shown again.
+  #### Example (inline survey)
+  ```js
+  const inlineSurvey = new InlineSurvey(urlBuilder, {
+    elementSelector: '#survey',
+    quarantineConfig: {
+      period: 5 // days
+    }
+  });
+  ```

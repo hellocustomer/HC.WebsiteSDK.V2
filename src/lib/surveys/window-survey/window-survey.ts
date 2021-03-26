@@ -1,6 +1,7 @@
 import { CannotOpenWindowException } from '../../core/exceptions/cannot-open-window.exception';
 import { UrlFactory } from '../../core/factories/url.factory';
 import { UrlBuilder } from '../../url-builder/url.builder';
+import { QuarantineService } from '../common/quarantine.service';
 
 import { WindowSurveyConfig } from './window-survey-config.interface';
 import { WindowSurveyConfigValidator } from './window-survey.config-validator';
@@ -51,6 +52,7 @@ export class WindowSurvey {
   private windowHandle: Window | undefined | null;
   private readonly urlFactory: UrlFactory;
   private readonly validator: WindowSurveyConfigValidator;
+  private readonly quarantineService: QuarantineService;
 
   constructor(
     configBuilder: UrlBuilder,
@@ -58,6 +60,9 @@ export class WindowSurvey {
   ) {
     this.urlFactory = configBuilder.getUrlFactory();
     this.validator = new WindowSurveyConfigValidator();
+    this.quarantineService = new QuarantineService(
+      windowConfig.quarantineConfig
+    );
     this.validator.validateAndThrowOnErrors(windowConfig);
     if (this.windowConfig.openOnCreation) this.open();
   }
@@ -70,18 +75,21 @@ export class WindowSurvey {
    * Open survey
    */
   public open(): void {
-    if (this.windowConfig.openNewWindow)
-      this.windowHandle = window.open(
-        this.urlFactory.getUrlWithParams(),
-        '_blank',
-        'toolbar=0,location=0,menubar=0,height=800,width=700'
-      );
-    else
-      this.windowHandle = window.open(
-        this.urlFactory.getUrlWithParams(),
-        '_blank'
-      );
-    if (!this.windowHandle) throw new CannotOpenWindowException();
+    if (!this.quarantineService.isUnderQuarantine()) {
+      if (this.windowConfig.openNewWindow)
+        this.windowHandle = window.open(
+          this.urlFactory.getUrlWithParams(),
+          '_blank',
+          'toolbar=0,location=0,menubar=0,height=800,width=700'
+        );
+      else
+        this.windowHandle = window.open(
+          this.urlFactory.getUrlWithParams(),
+          '_blank'
+        );
+      if (!this.windowHandle) throw new CannotOpenWindowException();
+      this.quarantineService.startQuarantine();
+    }
   }
 
   /**
