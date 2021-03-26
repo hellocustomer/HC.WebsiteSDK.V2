@@ -150,7 +150,7 @@
   <span class="hljs-attr">extra</span>: {
     <span class="hljs-attr">isPreview</span>: <span class="hljs-literal">true</span>
   }
- });</code></pre>
+});</code></pre>
             <a
               href="#example-script-tag"
               id="example-script-tag"
@@ -168,9 +168,16 @@
       <span class="hljs-attr">extra</span>: {
         <span class="hljs-attr">isPreview</span>: <span class="hljs-literal">true</span>
       }
-     });
+    });
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
-            <p>Read the docs for other configuration options</p>
+            <p>
+              Please consult the docs for more
+              <a
+                href="https://hellocustomer.github.io/HC.WebsiteSDK/interfaces/surveyconfig.html"
+                >configuration options</a
+              >.
+            </p>
+            <hr />
             <a
               href="#inline-survey"
               id="inline-survey"
@@ -215,12 +222,19 @@
       <span class="hljs-attr">extra</span>: {
         <span class="hljs-attr">isPreview</span>: <span class="hljs-literal">true</span>
       }
-     });
-     <span class="hljs-keyword">const</span> inlineSurvey = <span class="hljs-keyword">new</span> hcWebsiteTouchpoint.InlineSurvey(urlBuilder, {
-        <span class="hljs-attr">elementSelector</span>: <span class="hljs-string">&#x27;#survey&#x27;</span>
-      });
+    });
+    <span class="hljs-keyword">const</span> inlineSurvey = <span class="hljs-keyword">new</span> hcWebsiteTouchpoint.InlineSurvey(urlBuilder, {
+      <span class="hljs-attr">elementSelector</span>: <span class="hljs-string">&#x27;#survey&#x27;</span>
+    });
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
-            <p>Read the docs for other configuration options</p>
+            <p>
+              Please consult the docs for more
+              <a
+                href="https://hellocustomer.github.io/HC.WebsiteSDK/interfaces/inlinesurveyconfig.html"
+                >configuration options</a
+              >.
+            </p>
+            <hr />
             <a
               href="#modal-survey"
               id="modal-survey"
@@ -228,6 +242,53 @@
             >
               <h3>Modal survey</h3>
             </a>
+            <a
+              href="#example-es-module-2"
+              id="example-es-module-2"
+              style="color: inherit; text-decoration: none"
+            >
+              <h4>Example (es module)</h4>
+            </a>
+            <pre><code class="language-js"><span class="hljs-keyword">import</span> { UrlBuilder, InlineSurvey } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@hello-customer/website-touchpoint&#x27;</span>
+<span class="hljs-keyword">const</span> urlBuilder = <span class="hljs-keyword">new</span> UrlBuilder({
+  <span class="hljs-attr">baseUrl</span>: <span class="hljs-string">&#x27;https://base.com&#x27;</span>,
+  <span class="hljs-attr">language</span>: <span class="hljs-string">&#x27;EN&#x27;</span>,
+  <span class="hljs-attr">tenantId</span>: <span class="hljs-string">&#x27;xxxx&#x27;</span>,
+  <span class="hljs-attr">touchPointId</span>: <span class="hljs-string">&#x27;zzz&#x27;</span>,
+  <span class="hljs-attr">extra</span>: {
+    <span class="hljs-attr">isPreview</span>: <span class="hljs-literal">true</span>
+  }
+});
+<span class="hljs-keyword">const</span> modalSurvey = <span class="hljs-keyword">new</span> ModalSurvey(urlBuilder, {});
+modalSurvey.show();</code></pre>
+            <a
+              href="#example-script-tag-2"
+              id="example-script-tag-2"
+              style="color: inherit; text-decoration: none"
+            >
+              <h4>Example (script tag)</h4>
+            </a>
+            <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://unpkg.com/@hello-customer/website-touchpoint&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+    <span class="hljs-keyword">const</span> urlBuilder = <span class="hljs-keyword">new</span> hcWebsiteTouchpoint.UrlBuilder({
+      <span class="hljs-attr">baseUrl</span>: <span class="hljs-string">&#x27;https://base.com&#x27;</span>,
+      <span class="hljs-attr">tenantId</span>: <span class="hljs-string">&#x27;xxxx&#x27;</span>,
+      <span class="hljs-attr">touchPointId</span>: <span class="hljs-string">&#x27;zzz&#x27;</span>,
+      <span class="hljs-attr">language</span>: <span class="hljs-string">&#x27;EN&#x27;</span>,
+      <span class="hljs-attr">extra</span>: {
+        <span class="hljs-attr">isPreview</span>: <span class="hljs-literal">true</span>
+      }
+    });
+    <span class="hljs-keyword">const</span> modalSurvey = <span class="hljs-keyword">new</span> hcWebsiteTouchpoint.ModalSurvey(urlBuilder, {});
+    modalSurvey.show();
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+            <p>
+              Please consult the docs for more
+              <a
+                href="https://hellocustomer.github.io/HC.WebsiteSDK/interfaces/modalsurveyconfig.html"
+                >configuration options</a
+              >.
+            </p>
             <a
               href="#modal-structure"
               id="modal-structure"
@@ -262,44 +323,34 @@
               <code>ignoreDefaultStyles</code> to true.
             </p>
             <a
-              href="#example-es-module-2"
-              id="example-es-module-2"
+              href="#modal-styling-example"
+              id="modal-styling-example"
               style="color: inherit; text-decoration: none"
             >
-              <h4>Example (es module)</h4>
+              <h4>Modal styling example</h4>
             </a>
+            <p>
+              The following example shows how to change the color of the modal
+              top bar:
+            </p>
             <pre><code class="language-js"><span class="hljs-keyword">import</span> { UrlBuilder, InlineSurvey } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@hello-customer/website-touchpoint&#x27;</span>
-<span class="hljs-keyword">const</span> urlBuilder = <span class="hljs-keyword">new</span> UrlBuilder({
-  <span class="hljs-attr">baseUrl</span>: <span class="hljs-string">&#x27;https://base.com&#x27;</span>,
-  <span class="hljs-attr">language</span>: <span class="hljs-string">&#x27;EN&#x27;</span>,
-  <span class="hljs-attr">tenantId</span>: <span class="hljs-string">&#x27;xxxx&#x27;</span>,
-  <span class="hljs-attr">touchPointId</span>: <span class="hljs-string">&#x27;zzz&#x27;</span>,
-  <span class="hljs-attr">extra</span>: {
-    <span class="hljs-attr">isPreview</span>: <span class="hljs-literal">true</span>
-  }
-});
-<span class="hljs-keyword">const</span> modalSurvey = <span class="hljs-keyword">new</span> ModalSurvey(urlBuilder, {});</code></pre>
-            <a
-              href="#example-script-tag-2"
-              id="example-script-tag-2"
-              style="color: inherit; text-decoration: none"
-            >
-              <h4>Example (script tag)</h4>
-            </a>
-            <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://unpkg.com/@hello-customer/website-touchpoint&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
-<span class="hljs-keyword">const</span> urlBuilder = <span class="hljs-keyword">new</span> hcWebsiteTouchpoint.UrlBuilder({
-    <span class="hljs-attr">baseUrl</span>: <span class="hljs-string">&#x27;https://base.com&#x27;</span>,
-    <span class="hljs-attr">tenantId</span>: <span class="hljs-string">&#x27;xxxx&#x27;</span>,
-    <span class="hljs-attr">touchPointId</span>: <span class="hljs-string">&#x27;zzz&#x27;</span>,
-    <span class="hljs-attr">language</span>: <span class="hljs-string">&#x27;EN&#x27;</span>,
-    <span class="hljs-attr">extra</span>: {
-      <span class="hljs-attr">isPreview</span>: <span class="hljs-literal">true</span>
+<span class="hljs-keyword">const</span> urlBuilder = <span class="hljs-keyword">new</span> UrlBuilder({...});
+<span class="hljs-keyword">const</span> modalSurvey = <span class="hljs-keyword">new</span> ModalSurvey(urlBuilder, {
+  <span class="hljs-attr">modalStyle</span>: {
+    <span class="hljs-attr">windowBarDivStyle</span>: {
+      <span class="hljs-attr">backgroundColor</span>: <span class="hljs-string">&#x27;#04c48e&#x27;</span>
     }
-   });
-<span class="hljs-keyword">const</span> modalSurvey = <span class="hljs-keyword">new</span> hcWebsiteTouchpoint.ModalSurvey(urlBuilder, {});
-</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
-            <p>Read the docs for other configuration options.</p>
+  }
+});</code></pre>
+            <p>
+              <a
+                href="https://hellocustomer.github.io/HC.WebsiteSDK/interfaces/modalsurveystyleconfig.html"
+                >Other parts of the modal</a
+              >
+              can be styled in the same way (any valid CSS property can be used
+              for them).
+            </p>
+            <hr />
             <a
               href="#window-survey"
               id="window-survey"
@@ -324,9 +375,10 @@
     <span class="hljs-attr">isPreview</span>: <span class="hljs-literal">true</span>
   }
 });
-<span class="hljs-keyword">const</span> inlineSurvey = <span class="hljs-keyword">new</span> WindowSurvey(urlBuilder, {
+<span class="hljs-keyword">const</span> windowSurvey = <span class="hljs-keyword">new</span> WindowSurvey(urlBuilder, {
   <span class="hljs-attr">openNewWindow</span>: <span class="hljs-literal">true</span>
-});</code></pre>
+});
+windowSurvey.open();</code></pre>
             <a
               href="#example-script-tag-3"
               id="example-script-tag-3"
@@ -345,11 +397,43 @@
         <span class="hljs-attr">isPreview</span>: <span class="hljs-literal">true</span>
       }
      });
-     <span class="hljs-keyword">const</span> inlineSurvey = <span class="hljs-keyword">new</span> hcWebsiteTouchpoint.WindowSurvey(urlBuilder, {
+     <span class="hljs-keyword">const</span> windowSurvey = <span class="hljs-keyword">new</span> hcWebsiteTouchpoint.WindowSurvey(urlBuilder, {
         <span class="hljs-attr">openNewWindow</span>: <span class="hljs-literal">true</span>
-      });
+     });
+     windowSurvey.open();
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
-            <p>Read the docs for other configuration options</p>
+            <p>
+              Please consult the docs for more
+              <a
+                href="https://hellocustomer.github.io/HC.WebsiteSDK/interfaces/windowsurveyconfig.html"
+                >configuration options</a
+              >.
+            </p>
+            <a
+              href="#quarantine"
+              id="quarantine"
+              style="color: inherit; text-decoration: none"
+            >
+              <h2>Quarantine</h2>
+            </a>
+            <p>
+              It is possible to set a quarantine period for any survey type -
+              once the survey is opened, it defines how many days should elapse
+              before the survey could be shown again.
+            </p>
+            <a
+              href="#example-inline-survey"
+              id="example-inline-survey"
+              style="color: inherit; text-decoration: none"
+            >
+              <h4>Example (inline survey)</h4>
+            </a>
+            <pre><code class="language-js"><span class="hljs-keyword">const</span> inlineSurvey = <span class="hljs-keyword">new</span> InlineSurvey(urlBuilder, {
+  <span class="hljs-attr">elementSelector</span>: <span class="hljs-string">&#x27;#survey&#x27;</span>,
+  <span class="hljs-attr">quarantineConfig</span>: {
+    <span class="hljs-attr">period</span>: <span class="hljs-number">5</span> <span class="hljs-comment">// days</span>
+  }
+});</code></pre>
           </div>
         </div>
         <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -417,11 +501,23 @@
                   >Modal<wbr />Survey<wbr />Config<wbr />Validator</a
                 >
               </li>
+              <li class="tsd-kind-class">
+                <a href="classes/quarantineservice.html" class="tsd-kind-icon"
+                  >Quarantine<wbr />Service</a
+                >
+              </li>
               <li class="tsd-kind-class tsd-has-type-parameter">
                 <a
                   href="classes/styledelementfactory.html"
                   class="tsd-kind-icon"
                   >Styled<wbr />Element<wbr />Factory</a
+                >
+              </li>
+              <li class="tsd-kind-class">
+                <a
+                  href="classes/surveyquarantineconfigvalidator.html"
+                  class="tsd-kind-icon"
+                  >Survey<wbr />Quarantine<wbr />Config<wbr />Validator</a
                 >
               </li>
               <li class="tsd-kind-class">
@@ -487,6 +583,13 @@
               <li class="tsd-kind-interface">
                 <a href="interfaces/surveymetadata.html" class="tsd-kind-icon"
                   >Survey<wbr />Metadata</a
+                >
+              </li>
+              <li class="tsd-kind-interface">
+                <a
+                  href="interfaces/surveyquarantineconfig.html"
+                  class="tsd-kind-icon"
+                  >Survey<wbr />Quarantine<wbr />Config</a
                 >
               </li>
               <li class="tsd-kind-interface">
