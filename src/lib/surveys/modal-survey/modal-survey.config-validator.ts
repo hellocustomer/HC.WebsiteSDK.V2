@@ -1,5 +1,6 @@
 import { BaseConfigValidator } from '../../core/base-classes/base.config-validator';
 import { ConfigValidationFunctionType } from '../../core/types/config-validation-function.type';
+import { SurveyQuarantineConfigValidator } from '../common/survey-quarantine.config-validator';
 
 import { ModalSurveyConfig } from './modal-survey-config.interface';
 
@@ -104,6 +105,21 @@ export class ModalSurveyConfigValidator extends BaseConfigValidator<
               modalContainerSelectorIsString:
                 'modalContainerSelector is string',
             },
+      (config) => {
+        return !config.quarantineConfig ||
+          (typeof config.quarantineConfig as unknown) === 'object'
+          ? null
+          : {
+              quarantineConfigIsObject: 'Quarantine config must be an object',
+            };
+      },
+      (config) => {
+        return config.quarantineConfig
+          ? new SurveyQuarantineConfigValidator().validate(
+              config.quarantineConfig
+            )
+          : null;
+      },
     ];
   }
 }
