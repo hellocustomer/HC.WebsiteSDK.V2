@@ -1,6 +1,6 @@
 {
   "name": "@hello-customer/website-touchpoint",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "Library for embedding Hello Customer surveys",
   "main": "build/umd/website-touchpoint.js",
   "typings": "build/module/index.d.ts",

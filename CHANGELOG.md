@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/hellocustomer/HC.WebsiteSDK/compare/1.1.2...1.2.0) (2021-03-26)
+
+
+### Features
+
+* add survey quarantine ([143fada](https://github.com/hellocustomer/HC.WebsiteSDK/commit/143fadae8b7d805fe63dbeee0b1b595d2b33c520)), closes [#HCS-17](https://github.com/hellocustomer/HC.WebsiteSDK/issues/HCS-17)
+
 ### [1.1.2](https://github.com/hellocustomer/HC.WebsiteSDK/compare/1.1.1...1.1.2) (2021-02-25)
 
 
