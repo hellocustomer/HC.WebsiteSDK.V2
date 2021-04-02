@@ -27,6 +27,10 @@ describe('UrlFactory', () => {
     );
   });
 
+  test('urlFactory.getSurveyIdentifier', () => {
+    expect(urlFactory.getSurveyIdentifier()).toEqual('zzzzzzzz');
+  });
+
   test('urlFactory.getUrlWithParams', () => {
     expect(urlFactory.getUrlWithParams()).toBe(
       'https://hello.com/EN/AskAnywhereCampaign/xxxxx/zzzzzzzz?entry.score=10&entry.respondent.lastname=xxx&entry.metadata[test]=123'

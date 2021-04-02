@@ -17,6 +17,13 @@ export class UrlFactory {
   private static readonly TOUCHPOINT_TYPE = 'AskAnywhereCampaign';
 
   /**
+   * Get survey identifier
+   */
+  public getSurveyIdentifier(): string {
+    return this.config.touchPointId;
+  }
+
+  /**
    * Get full url with all attached params
    */
   public getUrlWithParams(): string {

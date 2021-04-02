@@ -4,14 +4,15 @@ export class QuarantineService {
   private static quarantineStartKey = 'hcSDK.SurveyQuarantineStart';
   private static daysToMillisecondsMultiplier = 24 * 60 * 60 * 1000;
 
-  constructor(private quarantineConfig?: SurveyQuarantineConfig) {}
+  constructor(
+    private surveyIdentifier: string,
+    private quarantineConfig?: SurveyQuarantineConfig
+  ) {}
 
   isUnderQuarantine(): boolean {
     // verify quarantine only when its config is provided
     if (this.quarantineConfig) {
-      const quarantineStartData = localStorage.getItem(
-        QuarantineService.quarantineStartKey
-      );
+      const quarantineStartData = this.getQuarantineStartData();
       const quarantineStart = quarantineStartData
         ? parseInt(quarantineStartData)
         : null;
@@ -30,10 +31,20 @@ export class QuarantineService {
 
   startQuarantine(): void {
     if (this.quarantineConfig) {
-      localStorage.setItem(
-        QuarantineService.quarantineStartKey,
-        Date.now().toString()
-      );
+      this.setQuarantineStartData(Date.now().toString());
     }
+  }
+
+  private getQuarantineStartData(): string | null {
+    return localStorage.getItem(
+      `${QuarantineService.quarantineStartKey}:${this.surveyIdentifier}`
+    );
+  }
+
+  private setQuarantineStartData(data: string): void {
+    localStorage.setItem(
+      `${QuarantineService.quarantineStartKey}:${this.surveyIdentifier}`,
+      data
+    );
   }
 }

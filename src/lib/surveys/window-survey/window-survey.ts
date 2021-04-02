@@ -61,6 +61,7 @@ export class WindowSurvey {
     this.urlFactory = configBuilder.getUrlFactory();
     this.validator = new WindowSurveyConfigValidator();
     this.quarantineService = new QuarantineService(
+      this.urlFactory.getSurveyIdentifier(),
       windowConfig.quarantineConfig
     );
     this.validator.validateAndThrowOnErrors(windowConfig);
