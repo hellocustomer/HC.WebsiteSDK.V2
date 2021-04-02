@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/hellocustomer/HC.WebsiteSDK/compare/1.2.0...1.3.0) (2021-04-02)
+
+
+### Features
+
+* set quarantine per touchpoint ([1ad360f](https://github.com/hellocustomer/HC.WebsiteSDK/commit/1ad360fa6de784ee5a7d0c5af65257da3a27472a)), closes [#HCS-18](https://github.com/hellocustomer/HC.WebsiteSDK/issues/HCS-18)
+
 ## [1.2.0](https://github.com/hellocustomer/HC.WebsiteSDK/compare/1.1.2...1.2.0) (2021-03-26)
 
 
