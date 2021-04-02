@@ -202,7 +202,7 @@ Please consult the docs for more [configuration options](https://hellocustomer.g
 Please consult the docs for more [configuration options](https://hellocustomer.github.io/HC.WebsiteSDK/interfaces/windowsurveyconfig.html).
 
 ## Quarantine
-  It is possible to set a quarantine period for any survey type - once the survey is opened, it defines how many days should elapse before the survey could be shown again.
+  It is possible to set a quarantine period for any survey type - once the survey is opened, it defines how many days should elapse before the survey could be shown again. Quarantine is applied per touchpoint (touchpointId).
   #### Example (inline survey)
   ```js
   const inlineSurvey = new InlineSurvey(urlBuilder, {
