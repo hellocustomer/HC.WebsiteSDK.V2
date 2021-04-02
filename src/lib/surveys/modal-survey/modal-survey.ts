@@ -86,6 +86,7 @@ export class ModalSurvey {
     this.validator = new ModalSurveyConfigValidator();
     this.validator.validateAndThrowOnErrors(modalConfig);
     this.quarantineService = new QuarantineService(
+      this.urlFactory.getSurveyIdentifier(),
       modalConfig.quarantineConfig
     );
     const [root, frame] = this.createModal();

@@ -63,6 +63,7 @@ export class InlineSurvey {
     this.validator.validateAndThrowOnErrors(inlineConfig);
     this.iFrameHandle = this.createIframeElement();
     this.quarantineService = new QuarantineService(
+      this.urlFactory.getSurveyIdentifier(),
       inlineConfig.quarantineConfig
     );
     this.reload();
