@@ -5,29 +5,14 @@ The recommended approach to install this package is to do it via npm with
 
 If You are not using npm or yarn, You have to include the script tag in your HTML code
 ```html
-<script src="https://unpkg.com/@hello-customer/website-touchpoint-v2"></script>
+<script src="https://resources.hellocustomer.com/hubfs/HC.WebsiteSDK.V2/website-touchpoint-v2.js"></script>
 ```
 ## Surveys
 First You have to create UrlBuilder class which stores your survey configuration and later an appropriate survey instance can be created.
 ### Survey Configuration
-#### Example (es module)
-```js
-import { UrlBuilder } from '@hello-customer/website-touchpoint-v2'
-const urlBuilder = new UrlBuilder({
-  baseUrl: 'https://base.com',
-  tenantId: 'xxx',
-  touchPointId: 'zzzzz',
-  language: 'EN',
-  extra: {
-    isPreview: true
-  }
-});
-  ```
-
-
 #### Example (script tag)
 ```html
-<script src="https://unpkg.com/@hello-customer/website-touchpoint-v2"></script>
+<script src="https://resources.hellocustomer.com/hubfs/HC.WebsiteSDK.V2/website-touchpoint-v2.js"></script>
 <script>
     const urlBuilder = new hcWebsiteTouchpoint.UrlBuilder({
       baseUrl: 'https://base.com',
@@ -45,27 +30,9 @@ Please consult the docs for more [configuration options](https://hellocustomer.g
 ***
 
 ### Inline survey
-  #### Example (es module)
-  ```js
-  import { UrlBuilder, InlineSurvey } from '@hello-customer/website-touchpoint-v2'
-  const urlBuilder = new UrlBuilder({
-    baseUrl: 'https://base.com',
-    tenantId: 'xxx',
-    touchPointId: 'zzzzz',
-    language: 'EN',
-    extra: {
-      isPreview: true
-    }
-  });
-  const inlineSurvey = new InlineSurvey(urlBuilder, {
-    elementSelector: '#survey'
-  });
-  ```
- 
- 
 #### Example (script tag)
 ```html
-<script src="https://unpkg.com/@hello-customer/website-touchpoint-v2"></script>
+<script src="https://resources.hellocustomer.com/hubfs/HC.WebsiteSDK.V2/website-touchpoint-v2.js"></script>
 <script>
     const urlBuilder = new hcWebsiteTouchpoint.UrlBuilder({
       baseUrl: 'https://base.com',
@@ -86,24 +53,9 @@ Please consult the docs for more [configuration options](https://hellocustomer.g
 ***
 
 ### Modal survey
-  #### Example (es module)
-  ```js
-  import { UrlBuilder, InlineSurvey } from '@hello-customer/website-touchpoint-v2'
-  const urlBuilder = new UrlBuilder({
-    baseUrl: 'https://base.com',
-    language: 'EN',
-    tenantId: 'xxxx',
-    touchPointId: 'zzz',
-    extra: {
-      isPreview: true
-    }
-  });
-  const modalSurvey = new ModalSurvey(urlBuilder, {});
-  modalSurvey.show();
-  ```
   #### Example (script tag)
   ```html
-  <script src="https://unpkg.com/@hello-customer/website-touchpoint-v2"></script>
+  <script src="https://resources.hellocustomer.com/hubfs/HC.WebsiteSDK.V2/website-touchpoint-v2.js"></script>
   <script>
       const urlBuilder = new hcWebsiteTouchpoint.UrlBuilder({
         baseUrl: 'https://base.com',
@@ -161,28 +113,9 @@ Please consult the docs for more [configuration options](https://hellocustomer.g
 ***
 
 ### Window survey
-  #### Example (es module)
-  ```js
-  import { UrlBuilder, WindowSurvey } from '@hello-customer/website-touchpoint-v2'
-  const urlBuilder = new UrlBuilder({
-    baseUrl: 'https://base.com',
-    tenantId: 'xxx',
-    touchPointId: 'zzzzz',
-    language: 'EN',
-    extra: {
-      isPreview: true
-    }
-  });
-  const windowSurvey = new WindowSurvey(urlBuilder, {
-    openNewWindow: true
-  });
-  windowSurvey.open();
-  ```
- 
- 
 #### Example (script tag)
 ```html
-<script src="https://unpkg.com/@hello-customer/website-touchpoint-v2"></script>
+<script src="https://resources.hellocustomer.com/hubfs/HC.WebsiteSDK.V2/website-touchpoint-v2.js"></script>
 <script>
     const urlBuilder = new hcWebsiteTouchpoint.UrlBuilder({
       baseUrl: 'https://base.com',
