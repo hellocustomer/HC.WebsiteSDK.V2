@@ -47,13 +47,13 @@ export class UrlFactory {
    * Get target url without query params
    */
   public getBaseUrlWithLanguage(): string {
-    if (this.config.newTp) {
+    //if (this.config.newTp) {
       return `${this.config.baseUrl}/${this.config.language}/${this.config.tenantId}/${this.config.touchPointId}`;
-    } else {
+    /*} else {
       if (this.config.language)
         return `${this.config.baseUrl}/${this.config.language}/${UrlFactory.TOUCHPOINT_TYPE}/${this.config.tenantId}/${this.config.touchPointId}`;
       else
         return `${this.config.baseUrl}/${UrlFactory.TOUCHPOINT_TYPE}/${this.config.tenantId}/${this.config.touchPointId}`;
-    }
+    }*/
   }
 }
