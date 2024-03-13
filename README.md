@@ -1,18 +1,18 @@
 # HC.WebsiteSDK
 ## Install
 The recommended approach to install this package is to do it via npm with
-```npm install @hello-customer/website-touchpoint```
+```npm install @hello-customer/website-touchpoint-v2```
 
 If You are not using npm or yarn, You have to include the script tag in your HTML code
 ```html
-<script src="https://unpkg.com/@hello-customer/website-touchpoint"></script>
+<script src="https://unpkg.com/@hello-customer/website-touchpoint-v2"></script>
 ```
 ## Surveys
 First You have to create UrlBuilder class which stores your survey configuration and later an appropriate survey instance can be created.
 ### Survey Configuration
 #### Example (es module)
 ```js
-import { UrlBuilder } from '@hello-customer/website-touchpoint'
+import { UrlBuilder } from '@hello-customer/website-touchpoint-v2'
 const urlBuilder = new UrlBuilder({
   baseUrl: 'https://base.com',
   tenantId: 'xxx',
@@ -27,7 +27,7 @@ const urlBuilder = new UrlBuilder({
 
 #### Example (script tag)
 ```html
-<script src="https://unpkg.com/@hello-customer/website-touchpoint"></script>
+<script src="https://unpkg.com/@hello-customer/website-touchpoint-v2"></script>
 <script>
     const urlBuilder = new hcWebsiteTouchpoint.UrlBuilder({
       baseUrl: 'https://base.com',
@@ -40,14 +40,14 @@ const urlBuilder = new UrlBuilder({
     });
 </script>
   ```
-Please consult the docs for more [configuration options](https://hellocustomer.github.io/HC.WebsiteSDK/interfaces/surveyconfig.html).
+Please consult the docs for more [configuration options](https://hellocustomer.github.io/HC.WebsiteSDK.V2/interfaces/surveyconfig.html).
 
 ***
 
 ### Inline survey
   #### Example (es module)
   ```js
-  import { UrlBuilder, InlineSurvey } from '@hello-customer/website-touchpoint'
+  import { UrlBuilder, InlineSurvey } from '@hello-customer/website-touchpoint-v2'
   const urlBuilder = new UrlBuilder({
     baseUrl: 'https://base.com',
     tenantId: 'xxx',
@@ -65,7 +65,7 @@ Please consult the docs for more [configuration options](https://hellocustomer.g
  
 #### Example (script tag)
 ```html
-<script src="https://unpkg.com/@hello-customer/website-touchpoint"></script>
+<script src="https://unpkg.com/@hello-customer/website-touchpoint-v2"></script>
 <script>
     const urlBuilder = new hcWebsiteTouchpoint.UrlBuilder({
       baseUrl: 'https://base.com',
@@ -81,14 +81,14 @@ Please consult the docs for more [configuration options](https://hellocustomer.g
     });
 </script>
   ```
-Please consult the docs for more [configuration options](https://hellocustomer.github.io/HC.WebsiteSDK/interfaces/inlinesurveyconfig.html).
+Please consult the docs for more [configuration options](https://hellocustomer.github.io/HC.WebsiteSDK.V2/interfaces/inlinesurveyconfig.html).
 
 ***
 
 ### Modal survey
   #### Example (es module)
   ```js
-  import { UrlBuilder, InlineSurvey } from '@hello-customer/website-touchpoint'
+  import { UrlBuilder, InlineSurvey } from '@hello-customer/website-touchpoint-v2'
   const urlBuilder = new UrlBuilder({
     baseUrl: 'https://base.com',
     language: 'EN',
@@ -103,7 +103,7 @@ Please consult the docs for more [configuration options](https://hellocustomer.g
   ```
   #### Example (script tag)
   ```html
-  <script src="https://unpkg.com/@hello-customer/website-touchpoint"></script>
+  <script src="https://unpkg.com/@hello-customer/website-touchpoint-v2"></script>
   <script>
       const urlBuilder = new hcWebsiteTouchpoint.UrlBuilder({
         baseUrl: 'https://base.com',
@@ -118,7 +118,7 @@ Please consult the docs for more [configuration options](https://hellocustomer.g
       modalSurvey.show();
   </script>
   ```
-Please consult the docs for more [configuration options](https://hellocustomer.github.io/HC.WebsiteSDK/interfaces/modalsurveyconfig.html).
+Please consult the docs for more [configuration options](https://hellocustomer.github.io/HC.WebsiteSDK.V2/interfaces/modalsurveyconfig.html).
 
 #### Modal structure
  
@@ -147,7 +147,7 @@ Please consult the docs for more [configuration options](https://hellocustomer.g
  
   The following example shows how to change the color of the modal top bar:
   ```js
-  import { UrlBuilder, InlineSurvey } from '@hello-customer/website-touchpoint'
+  import { UrlBuilder, InlineSurvey } from '@hello-customer/website-touchpoint-v2'
   const urlBuilder = new UrlBuilder({...});
   const modalSurvey = new ModalSurvey(urlBuilder, {
     modalStyle: {
@@ -157,13 +157,13 @@ Please consult the docs for more [configuration options](https://hellocustomer.g
     }
   });
   ```
-  [Other parts of the modal](https://hellocustomer.github.io/HC.WebsiteSDK/interfaces/modalsurveystyleconfig.html) can be styled in the same way (any valid CSS property can be used for them).
+  [Other parts of the modal](https://hellocustomer.github.io/HC.WebsiteSDK.V2/interfaces/modalsurveystyleconfig.html) can be styled in the same way (any valid CSS property can be used for them).
 ***
 
 ### Window survey
   #### Example (es module)
   ```js
-  import { UrlBuilder, WindowSurvey } from '@hello-customer/website-touchpoint'
+  import { UrlBuilder, WindowSurvey } from '@hello-customer/website-touchpoint-v2'
   const urlBuilder = new UrlBuilder({
     baseUrl: 'https://base.com',
     tenantId: 'xxx',
@@ -182,7 +182,7 @@ Please consult the docs for more [configuration options](https://hellocustomer.g
  
 #### Example (script tag)
 ```html
-<script src="https://unpkg.com/@hello-customer/website-touchpoint"></script>
+<script src="https://unpkg.com/@hello-customer/website-touchpoint-v2"></script>
 <script>
     const urlBuilder = new hcWebsiteTouchpoint.UrlBuilder({
       baseUrl: 'https://base.com',
@@ -199,7 +199,7 @@ Please consult the docs for more [configuration options](https://hellocustomer.g
      windowSurvey.open();
 </script>
   ```
-Please consult the docs for more [configuration options](https://hellocustomer.github.io/HC.WebsiteSDK/interfaces/windowsurveyconfig.html).
+Please consult the docs for more [configuration options](https://hellocustomer.github.io/HC.WebsiteSDK.V2/interfaces/windowsurveyconfig.html).
 
 ## Quarantine
   It is possible to set a quarantine period for any survey type - once the survey is opened, it defines how many days should elapse before the survey could be shown again. Quarantine is applied per touchpoint (touchpointId).
