@@ -1,11 +1,11 @@
 {
-  "name": "@hello-customer/website-touchpoint",
-  "version": "1.3.0",
+  "name": "@hello-customer/website-touchpoint-v2",
+  "version": "2.0.0",
   "description": "Library for embedding Hello Customer surveys",
-  "main": "build/umd/website-touchpoint.js",
+  "main": "build/umd/website-touchpoint-v2.js",
   "typings": "build/module/index.d.ts",
   "module": "build/module/index.js",
-  "repository": "https://github.com/hellocustomer/HC.WebsiteSDK.git",
+  "repository": "https://github.com/hellocustomer/HC.WebsiteSDK.V2.git",
   "license": "MIT",
   "keywords": [],
   "scripts": {
