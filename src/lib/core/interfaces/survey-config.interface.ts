@@ -6,4 +6,5 @@ export interface SurveyConfig {
   baseUrl: string;
   language?: string;
   extra?: SurveyExtraConfig;
+  newTp?: boolean;
 }
