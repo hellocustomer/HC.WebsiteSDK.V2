@@ -14,7 +14,7 @@ export class UrlFactory {
 
   private static readonly QUERY_PARAM_PREFIX = 'entry.';
 
-  private static readonly TOUCHPOINT_TYPE = 'AskAnywhereCampaign';
+  //private static readonly TOUCHPOINT_TYPE = 'AskAnywhereCampaign';
 
   /**
    * Get survey identifier
